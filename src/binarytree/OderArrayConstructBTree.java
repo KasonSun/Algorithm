@@ -1,28 +1,7 @@
-package dp;
+package binarytree;
 
-/**
- * 动态规划：T(O())  S(O())
- *
- *              五部曲：
- *                  ①dp数组定义
- *
- *
- *                  ②状态转移方程
- *
- *
- *                  ③dp[i]的初始化
- *
- *
- *                  ④确定遍历顺序
- *
- *
- *                  ⑤举例推导dp数组
- *
- *
- * @param s
- * @return
- */
-public class Test {
+
+public class OderArrayConstructBTree {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, -1, 5};
         BTreeNode root = constructBTree(nums);
