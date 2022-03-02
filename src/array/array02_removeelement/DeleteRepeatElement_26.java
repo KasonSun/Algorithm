@@ -23,13 +23,12 @@ public class DeleteRepeatElement_26 {
      * @return
      */
     public static int deleteRepeatElement(int[] nums) {
-        int len = nums.length;
-        if (len < 2)
-            return len;
+        if (nums.length < 2)
+            return nums.length;
         int left = 0;
-        for (int right = 1; right < len; right++) {
+        for (int right = 1; right < nums.length; right++) {
             if (nums[left] != nums[right]) {
-                nums[++left] = nums[right];
+                nums[++left] = nums[right];//注意此处与27的区别，left先加，在进行赋值
             }
         }
         return left + 1;//上面得到的是下标范围，因此长度加1

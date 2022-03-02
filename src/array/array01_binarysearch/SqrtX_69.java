@@ -23,7 +23,7 @@ public class SqrtX_69 {
         int l = 0, r = x, ans = 0;
         while (l <= r) {
             int mid = (l + r)>>1;
-            if (mid * mid <= x) {
+            if ((long)mid * mid <= x) {//注意此处的类型转换，会超时需要强制类型转换
                 ans = mid;//注意此处的ans=mid操作只在mid*mid<=x才进行赋值（满足K^2<=X的最大K值）
                 l = mid + 1;
             } else {

@@ -22,7 +22,7 @@ public class OrderArraySquare_977 {
      * 1.直接对平方后的数组进行排序
      * 2.双指针法（分别指向0和n-1，选择较大的那个数的平方逆序放入额外数组，这种实现的基础是数组有序）
      * "本题实际是借助额外的数组进行实现"
-     * time O(n), space O(1)
+     * time O(n), space O(1)  除了存储答案的空间外，只需要O(1)
      * @param nums
      * @return
      */

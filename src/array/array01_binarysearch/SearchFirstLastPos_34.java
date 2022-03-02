@@ -42,7 +42,7 @@ public class SearchFirstLastPos_34 {
         return new int[]{firstPos, lastPos};
     }
 
-    private static int findLastPos(int[] nums, int target) {
+    public static int findLastPos(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
         while (start < end) {
@@ -61,7 +61,7 @@ public class SearchFirstLastPos_34 {
         return start; //由于已经做了if (firstPos == -1) {return new int[]{-1,-1}; }判断，因此这里可以直接返回
     }
 
-    private static int findFirstPos(int[] nums, int target) {
+    public static int findFirstPos(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
         while (start < end) {

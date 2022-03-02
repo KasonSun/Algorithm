@@ -30,7 +30,7 @@ public class MinCoverSubString_76 {
     /**
      *最小覆盖子串
      * 1.注意左右逻辑的区别
-     * 2.count的变化一定要在have数组变化之前；对于最小覆子串的长度和开始索引的维护要在hava数组变化之前
+     * 2.count的变化一定要在have数组变化之前；对于最小覆盖子串的长度和开始索引的维护要在hava数组变化之前
      * @param s
      * @param t
      * @return
@@ -41,8 +41,8 @@ public class MinCoverSubString_76 {
         }
         //维护两个数组，记录已有字符串指定字符的出现次数，和目标字符串指定字符的出现次数
         //ASCII表总长128
-        int[] need = new int[128];
         int[] have = new int[128];
+        int[] need = new int[128];
 
         //将目标字符串指定字符的出现次数记录
         for (int i = 0; i < t.length(); i++) {

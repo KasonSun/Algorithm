@@ -9,7 +9,7 @@ package array.array01_binarysearch;
 public class BinarySearch_704 {
     public static void main(String[] args) {
         int[] nums = {-1, 0, 3, 5, 9, 12};
-        int target = 9;
+        int target = 2;
         System.out.println("二分搜索的结果为:" + binarySearch(nums, target));
     }
 

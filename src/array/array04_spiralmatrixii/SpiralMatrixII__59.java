@@ -3,7 +3,7 @@ package array.array04_spiralmatrixii;
 import java.util.Arrays;
 
 /**
- * 给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
+ * 给你一个正整数 n ，生成一个包含 1 到 n^2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
  * <p>
  * 输入：n = 3
  * 输出：[[1,2,3],[8,9,4],[7,6,5]]
@@ -23,7 +23,7 @@ public class SpiralMatrixII__59 {
                 break;
             }
             System.out.print(Arrays.toString(target[i]));
-            System.out.print(",");
+            System.out.print("\n");
         }
         System.out.print("]");
     }
@@ -47,8 +47,8 @@ public class SpiralMatrixII__59 {
         int startX = 0;//每次循环的起始位置
         int startY = 0;
 
-        int offset = 1;//定义偏移量（每一圈循环需要控制每一条边的长度）
         int count = 1;//填充数字
+        int offset = 1;//定义偏移量(偏移量的原因是保证前闭后开，最后一个位置作为转向部分)（每一圈循环需要控制每一条边的长度）
 
         while (loop > 0) {
             int i = startX;
@@ -102,22 +102,18 @@ public class SpiralMatrixII__59 {
         int[][] matrix = new int[n][n];
         int left = 0, right = n - 1, top = 0, bottom = n - 1;
         while (left <= right && top <= bottom) {
-            for (int column = left; column <= right; column++) {
-                matrix[top][column] = num;
-                num++;
+            for (int col = left; col <= right; col++) {//一横
+                matrix[top][col] = num++;
             }
-            for (int row = top + 1; row <= bottom; row++) {
-                matrix[row][right] = num;
-                num++;
+            for (int row = top + 1; row <= bottom; row++) {//一竖
+                matrix[row][right] = num++;
             }
             if (left < right && top < bottom) {
-                for (int column = right - 1; column > left; column--) {
-                    matrix[bottom][column] = num;
-                    num++;
+                for (int col = right - 1; col > left; col--) {//反向一横，区别上面此处要留空
+                    matrix[bottom][col] = num++;
                 }
-                for (int row = bottom; row > top; row--) {
-                    matrix[row][left] = num;
-                    num++;
+                for (int row = bottom; row > top; row--) {//反向一竖，区别上面此处要留空，接头处
+                    matrix[row][left] = num++;
                 }
             }
             left++;

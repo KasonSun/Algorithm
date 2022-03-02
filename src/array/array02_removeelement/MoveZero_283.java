@@ -29,7 +29,7 @@ public class MoveZero_283 {
         int temp = -1;//作为交换临时变量
         for (int right = 1; right < len; right++) {
             if (nums[left] == 0) {
-                if (nums[right] != 0) {
+                if (nums[right] != 0) {//快指针不等于0进行交换，将0往后推
                     temp = nums[right];
                     nums[left++] = temp;//交换完成需要往后移动一位进行下一次交换
                     nums[right] = 0;

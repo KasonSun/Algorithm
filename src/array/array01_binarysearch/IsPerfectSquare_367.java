@@ -42,14 +42,14 @@ public class IsPerfectSquare_367 {
         int l = 0, r = num;
         while (l <= r) {
             int mid = l + (r-l) / 2;
-            long square = (long) mid * mid;
-            if (square < num) {
+            if (mid * mid < num) {
                 l = mid + 1;
-            } else if (square > num) {
+            } else if (mid * mid > num) {
                 r = mid - 1;
             } else {
                 return true;
             }
+
         }
         return false;
     }

@@ -1,5 +1,7 @@
 package array.array02_removeelement;
 
+import java.util.Arrays;
+
 /**
  * 给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
  * 不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并原地修改输入数组。
@@ -16,6 +18,7 @@ public class RemoveElement_27 {
         int val2 = 2;
         System.out.println("暴力法返回数组的长度为：" + removeElement01(nums1, val1));
         System.out.println("快慢指针法返回数组的长度为：" + removeElement02(nums2, val2));
+        System.out.println(Arrays.toString(nums2));
 
     }
 
@@ -34,6 +37,7 @@ public class RemoveElement_27 {
                     nums[j - 1] = nums[j];
                 }
                 i--;//由于i后面的数值都往前移动了一位，此时下一轮循环i++，因此此处应该将i--
+                // (此处必须-1，因为内层循环执行完下一轮会自增，如果不减一则会漏掉数没有进行比较)
                 len--;//数组长度减去1
             }
         }

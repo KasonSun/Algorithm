@@ -17,7 +17,7 @@ public class BackSpaceCompare_844 {
 
     /**
      * 双指针法
-     * 思路：将字符串拆分存放数组中，再进行比较（反向比较：联想输入字符再输入backspace的操作）
+     * 思路：比较（反向比较：联想输入字符再输入backspace的操作）
      *  反向比较的核心在于要去除退格#的影响后找到一个待比较字符
      * @param s
      * @param t
