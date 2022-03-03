@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * 希尔排序（缩小增量排序）
- *      原地不稳定的插入排序   time：平均O(nlogn)  最好O(nlog2n)   最坏O(nlog2n)  space:O(1)
+ *      原地不稳定的插入排序   time：平均O(n^1.3)  最好O(n)   最坏O(n^2)  space:O(1)
  *
  *      步骤：
  *          1.把记录按步长gap分组，对每组记录采用直接插入排序；
