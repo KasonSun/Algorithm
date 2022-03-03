@@ -1,12 +1,16 @@
-package sort;
+package sort.selection;
 
 import java.util.Arrays;
 
 /**
  * 堆排序
- *      原地不稳定排序   time:最好 O(nlogn) 最坏O(nlogn) 平均O(nlogn)  space:O(1)
+ *      原地不稳定选择排序   time:最好 O(nlogn) 最坏O(nlogn) 平均O(nlogn)  space:O(1)
  *      当前节点为i，则其父节点为：（i-1）/2，左子节点：2i+1，右子节点：2i+2
  *
+ *      步骤；
+ *          1.建堆，从最后一个结点的父节点向上维护堆性质（heapify）；
+ *          2.排序，将建堆后的根节点（此时最大）与最后一个结点进行交换，砍掉最后一个结点，继续heapify，重复交换砍节点过程
+ *                  （砍节点并不是真正的删除，通过观察可以发现，此时循环i刚好是砍掉节点的个数，因为节点总数和索引数刚好差1）
  *
  */
 public class HeapSort {
