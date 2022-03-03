@@ -32,7 +32,7 @@ public class HeapSort {
         int last = n - 1;//最后一个结点
         int parent = (last - 1) / 2;//最后一个结点的父节点
         for (int i = parent; i >= 0; i--) {
-            heapify(tree, n, 0);
+            heapify(tree, n, i);
         }
     }
 
