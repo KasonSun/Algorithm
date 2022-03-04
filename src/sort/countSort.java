@@ -46,7 +46,7 @@ public class countSort {
         //3.根据bucket数组获取当前值在结果数组中下标索引
         int res[] = new int[nums.length];
         for(int i = 0; i < nums.length; i++){
-            int index = --bucket[nums[i]];//当确定一个数以后，需要更新bucket数组--，操作都在这里实现了--bucket[nums[i]]（实现了索引index--和help[nums[i]]--）
+            int index = --bucket[nums[i]];//当确定一个数以后，需要更新bucket数组--，操作都在这里实现了--bucket[nums[i]]（实现了索引index--和bucket[nums[i]]--）
             res[index] = nums[i];
         }
         return res;
