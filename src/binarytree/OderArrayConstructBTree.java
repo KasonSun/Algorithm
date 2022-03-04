@@ -1,6 +1,8 @@
 package binarytree;
 
-
+/**
+ * 数组构建二叉树
+ */
 public class OderArrayConstructBTree {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, -1, 5};

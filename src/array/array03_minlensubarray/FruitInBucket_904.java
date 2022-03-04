@@ -23,6 +23,7 @@ import java.util.HashMap;
  * 输出：4
  * 解释：我们可以收集 [2,3,2,2]
  * 如果我们从第一棵树开始，我们将只能收集到 [1, 2]。
+ *
  */
 public class FruitInBucket_904 {
     public static void main(String[] args) {

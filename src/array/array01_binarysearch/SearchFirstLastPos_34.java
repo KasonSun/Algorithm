@@ -12,6 +12,7 @@ import java.util.Arrays;
  * 输出：[-1,-1]
  * 输入：nums = [], target = 0
  * 输出：[-1,-1]
+ *
  */
 public class SearchFirstLastPos_34 {
 

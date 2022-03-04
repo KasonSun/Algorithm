@@ -1,5 +1,6 @@
 package array.array01_binarysearch;
 
+
 public class Test {
     public static void main(String[] args) {
         test();

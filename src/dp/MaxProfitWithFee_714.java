@@ -19,6 +19,7 @@ package dp;
  *
  * 输入：prices = [1,3,7,5,10,3], fee = 3
  * 输出：6
+ *
  */
 public class MaxProfitWithFee_714 {
     public static void main(String[] args) {

@@ -8,7 +8,7 @@ package array.array01_binarysearch;
  * 示例 3: 输入: [1,3,5,6], 7 输出: 4
  * 示例 4: 输入: [1,3,5,6], 0 输出: 0
  *
- * #思路
+ * 思路
  */
 
 public class SearchInsertPos_35 {

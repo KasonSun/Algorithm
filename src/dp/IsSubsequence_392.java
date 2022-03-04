@@ -74,7 +74,7 @@ public class IsSubsequence_392 {
         return false;
     }
     /**
-     * 1.双指针法 T(O(n))  S(O(1))
+     *  1.双指针法 T(O(n))  S(O(1))
      *      两个指针循环遍历，i,j指针
      *      空串是任何字符串的子串
      *      t中出现s，t的长度应该大于等于s

@@ -26,7 +26,7 @@ public class FindLengthOfLCIS_674 {
     }
 
     /**
-     * 动态规划：T(O(n))  S(O(n))
+     *  动态规划：T(O(n))  S(O(n))
      *      相对于300.最长递增子序列最大区别在于连续
      *              五部曲：
      *                  ①dp数组定义

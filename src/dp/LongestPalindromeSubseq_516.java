@@ -53,7 +53,6 @@ public class LongestPalindromeSubseq_516 {
      *                      输入s:"cbbd" 为例，dp数组状态如图：
      *                      红色框即：dp[0][s.size() - 1]; 为最终结果。
      *
-     *
      * @param s
      * @return
      */

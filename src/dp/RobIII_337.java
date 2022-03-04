@@ -14,7 +14,6 @@ package dp;
  * 输入: root = [3,4,5,1,3,null,1]
  * 输出: 9
  * 解释:小偷一晚能够盗取的最高金额 4 + 5 = 9
- *
  */
 public class RobIII_337 {
     public static void main(String[] args) {

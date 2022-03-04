@@ -7,6 +7,7 @@ package array.array02_removeelement;
  * 输入：s = "ab#c", t = "ad#c"
  * 输出：true
  * 解释：S 和 T 都会变成 “ac”。
+ *
  */
 public class BackSpaceCompare_844 {
     public static void main(String[] args) {
