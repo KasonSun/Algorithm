@@ -3,7 +3,7 @@ package sort;
 import java.util.Arrays;
 
 /**
- * 基数排序
+ *  基数排序
  *          非原地稳定排序   time：平均O(n*k)  最好O(n*k)   最坏O(n*k)  space:O(n+k)
  *
  *       步骤：1.按个位排序收集；

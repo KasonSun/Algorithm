@@ -3,7 +3,7 @@ package sort.insertion;
 import java.util.Arrays;
 
 /**
- * 折半插入排序
+ *  折半插入排序
  *      原地稳定的插入排序   time：平均O(n^2)  最好O(n)   最坏O(n^2)  space:O(1)
  *
  *      步骤：

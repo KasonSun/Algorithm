@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * 桶排序
+ *  桶排序
  *      需要占用大量空间，它仅适用于数据比较集中的情况。比如 [0~100]，[10000~19999] 这样的数据。
  *      非原地稳定排序   time：平均O(n+k)  最好O(n+k)   最坏O(n^2)  space:O(k)
  *

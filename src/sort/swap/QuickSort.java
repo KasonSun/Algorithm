@@ -3,7 +3,7 @@ package sort.swap;
 import java.util.Arrays;
 
 /**
- * 快速排序（分治法）
+ *  快速排序（分治法）
  * 原地不稳定交换排序   time:最好 O(nlogn) 最坏O(n^2) 平均O(nlogn)  space:O(logn)
  * 算法步骤
  * 从数列中挑出一个元素，称为 “基准”（pivot）;

@@ -3,7 +3,7 @@ package sort.selection;
 import java.util.Arrays;
 
 /**
- * 简单选择排序
+ *  简单选择排序
  *      原地不稳定的选择排序   time：平均O(n^2)  最好O(n^2)   最坏O(n^2)  space:O(1)
  *
  *      步骤：

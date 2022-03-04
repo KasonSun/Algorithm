@@ -3,9 +3,9 @@ package sort;
 import java.util.Arrays;
 
 /**
- * 归并排序（分治法）
+ *  归并排序（分治法）
  * 非原地稳定排序   time:最好 O(nlogn) 最坏O(nlogn) 平均O(nlogn)  space:O(n)
- * <p>
+ *
  * 把长度为n的输入序列分成两个长度为n/2的子序列
  * 对这两个子序列分别采用归并排序；
  * 将两个排序好的子序列合并成一个最终的排序序列。

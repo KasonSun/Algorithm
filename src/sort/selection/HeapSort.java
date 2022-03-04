@@ -3,7 +3,7 @@ package sort.selection;
 import java.util.Arrays;
 
 /**
- * 堆排序
+ *  堆排序
  *      原地不稳定选择排序   time:最好 O(nlogn) 最坏O(nlogn) 平均O(nlogn)  space:O(1)
  *      当前节点为i，则其父节点为：（i-1）/2 此时(i>1)，左子节点：2i+1，右子节点：2i+2
  *

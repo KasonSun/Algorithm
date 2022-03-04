@@ -3,7 +3,7 @@ package sort.swap;
 import java.util.Arrays;
 
 /**
- * 冒泡排序
+ *  冒泡排序
  *      原地稳定的交换排序   time：平均O(n^2)  最好O(n)   最坏O(n^2)  space:O(1)
  *
  *      改进：设置标志位：某次内层循环没有交换，说明此时已经有序，排序结束
