@@ -23,7 +23,7 @@ public class BinaryInsertionSort {
         // 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
         for (int i = 1; i < nums.length; i++) {
             temp = nums[i]; // 记录要插入的数据
-            int j = i; // 从已经排序的序列最右边的开始比较，找到比temp小的数
+//            int j = i; // 从已经排序的序列最右边的开始比较，找到比temp小的数
             //下面区别与直接插入，使用二分法搜索插入位置
             int left=0;
             int right = i - 1;
@@ -35,11 +35,11 @@ public class BinaryInsertionSort {
                     left = mid + 1;
                 }
             }
-            //退出循环时一定是left>right && left-right=1   此时left位置或者right后一个位置是插入位置
-            for (j = i - 1; j > right; j--) {
+            //退出循环时一定是left>right && left-right=1   此时（left位置）或者（right后一个位置）是插入位置
+            for (int j = i - 1; j >= left; j--) {
                 nums[j + 1] = nums[j];
             }
-            nums[right + 1] = temp;
+            nums[left] = temp;
         }
     }
 }

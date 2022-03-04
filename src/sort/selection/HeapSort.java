@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 堆排序
  *      原地不稳定选择排序   time:最好 O(nlogn) 最坏O(nlogn) 平均O(nlogn)  space:O(1)
- *      当前节点为i，则其父节点为：（i-1）/2，左子节点：2i+1，右子节点：2i+2
+ *      当前节点为i，则其父节点为：（i-1）/2 此时(i>1)，左子节点：2i+1，右子节点：2i+2
  *
  *      步骤；
  *          1.建堆，从最后一个结点的父节点向上维护堆性质（heapify）；
@@ -27,7 +27,7 @@ public class HeapSort {
         buildHeap(tree, tree.length);
         for (int i = tree.length - 1; i >= 0; i--) {
             swap(tree, i, 0);//交换完成，砍断最后一个结点，可以用i来维护此时节点个数
-            heapify(tree, i, 0);//i此时数量刚好是每次砍掉一个以后的数量
+            heapify(tree, i, 0);//i此时数量刚好是每次砍掉一个以后的数量，交换完成后需要对根节点继续维护堆的性质
         }
     }
 

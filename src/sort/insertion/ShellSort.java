@@ -8,11 +8,12 @@ import java.util.Arrays;
  *
  *      步骤：
  *          1.把记录按步长gap分组，对每组记录采用直接插入排序；
- *          2.随着步长的减小，所分成的组包含的记录越来越多，当步长减小到1时，整个数据合成一组，都成一组有序记录，完成排序
+ *          2.随着步长的减小，所分成的组包含的记录越来越多，当步长减小到1时，整个数据合成一组有序记录，完成排序
  */
 public class ShellSort {
     public static void main(String[] args) {
-        int[] nums = {5, 4, 5, 1, 7, 5, 8, 7};
+//        int[] nums = {5, 4, 5, 1, 7, 5, 8, 7};
+        int[] nums = {5, -4, 15, 1, 27, 5, -8, 7};
         shellSort(nums);
         System.out.println(Arrays.toString(nums));
     }
@@ -33,7 +34,7 @@ public class ShellSort {
         //step:步长
         for (int step = nums.length / 2; step > 0; step /= 2) {
             //对一个步长区间进行比较 [step,arr.length)
-            for (int i = step; i < nums.length; i++) {
+            for (int i = step; i < nums.length; i+=step) {
                 int temp = nums[i];
                 int j = i;
                 while (j >= step && temp < nums[j - step]) {

@@ -26,7 +26,7 @@ public class RadixSort {
                 max = nums[i];
             }
         }
-        //分别取各个位数排序
+        //分别取各个位数排序     value/div%10
         for (int div = 1; max / div > 0; div *= 10) {
             //创建十个桶
             int[] bucket = new int[10];

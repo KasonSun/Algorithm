@@ -23,7 +23,7 @@ public class DirectInsertionSort {
         // 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的
         for (int i = 1; i < nums.length; i++) {
             int temp = nums[i]; // 记录要插入的数据
-            int j = i; // 从已经排序的序列最右边的开始比较，找到比temp小的数
+            int j = i; // 从已经排序的序列最右边的开始比较，j作为游标，找到比temp小的数
             while (j >=1 && temp < nums[j - 1]) {
                 nums[j] = nums[j - 1];
                 j--;

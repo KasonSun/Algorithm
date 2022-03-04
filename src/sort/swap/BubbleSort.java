@@ -12,8 +12,8 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = {5, 4, 5, 1, 7, 5, 8, 7};
         int[] nums1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        bubbleSortAdvanced(nums1);
-        System.out.println(Arrays.toString(nums1));
+        bubbleSortAdvanced(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
     /**
@@ -33,8 +33,8 @@ public class BubbleSort {
     public static void bubbleSortAdvanced(int[] nums) {
         boolean flag = false;
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (nums[i] < nums[j]) {
+            for (int j = i+1; j < nums.length; j++) {
+                if (nums[j] < nums[i]) {
                     swap(nums, i, j);
                     flag = true;
                 }

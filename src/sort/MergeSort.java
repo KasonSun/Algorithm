@@ -4,12 +4,11 @@ import java.util.Arrays;
 
 /**
  * 归并排序（分治法）
- *      非原地稳定排序   time:最好 O(nlogn) 最坏O(nlogn) 平均O(nlogn)  space:O(n)
- *
- *      把长度为n的输入序列分成两个长度为n/2的子序列
- *      对这两个子序列分别采用归并排序；
- *      将两个排序好的子序列合并成一个最终的排序序列。
- *
+ * 非原地稳定排序   time:最好 O(nlogn) 最坏O(nlogn) 平均O(nlogn)  space:O(n)
+ * <p>
+ * 把长度为n的输入序列分成两个长度为n/2的子序列
+ * 对这两个子序列分别采用归并排序；
+ * 将两个排序好的子序列合并成一个最终的排序序列。
  */
 public class MergeSort {
     public static void main(String[] args) {
@@ -36,7 +35,7 @@ public class MergeSort {
                 result[index] = left[i++];
             } else if (left[i] > right[j]) {//此时左边数组的值大于右边，则将右边放入结果数组
                 result[index] = right[j++];
-            }else{//此时左边数组的值小于右边，则将左边的值放入结果数组
+            } else {//此时左边数组的值小于右边，则将左边的值放入结果数组
                 result[index] = left[i++];
             }
         }
