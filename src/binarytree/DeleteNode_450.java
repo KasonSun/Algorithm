@@ -71,13 +71,13 @@ public class DeleteNode_450 {
      * @return
      */
     public static TreeNode deleteNode2(TreeNode root, int key) {
-        if (root == null) return root;
+        if (root == null) return root;//1.
         if (root.val == key) {
-            if (root.left == null) {
+            if (root.left == null) {//2.3
                 return root.right;
-            } else if (root.right == null) {
+            } else if (root.right == null) {//3.4.
                 return root.left;
-            } else {
+            } else {//5.
                 TreeNode cur = root.right;
                 while (cur.left != null) {
                     cur = cur.left;
@@ -96,6 +96,9 @@ public class DeleteNode_450 {
      * 普通二叉树删除：
      *      1.递归删除普通二叉树的节点（遍历整棵树）
      *      2.迭代遍历，加上删除的逻辑
+     *      代码中目标节点（要删除的节点）被操作了两次：
+     *          第一次是和目标节点的右子树最左面节点交换；
+     *          第二次直接被NULL覆盖了
      * 注意：实际上删除普通二叉树的操作没有意思，没有给出一个具体的删除后调整规则
      * @param root
      * @param key
@@ -106,13 +109,17 @@ public class DeleteNode_450 {
             return root;
         }
         if (root.val == key) {
-            if (root.left == null) {
-                return root.right;
-            } else if (root.right == null) {
+            if (root.right == null) {//第二次操作目标值：最终删除作用
                 return root.left;
-            } else {
-                return root.right;//或者root.left
             }
+            TreeNode cur=root.right;
+            while(cur.left!=null){
+                cur=cur.left;
+            }
+            //第一次操作目标值：交换目标值右子树最左面节点
+            int temp=root.val;
+            root.val=cur.val;
+            cur.val = temp;
         }
         root.left = deleteCommonTreeNode(root.left, key);
         root.right = deleteCommonTreeNode(root.right, key);

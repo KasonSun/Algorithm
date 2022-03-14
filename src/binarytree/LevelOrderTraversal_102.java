@@ -1,9 +1,6 @@
 package binarytree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 二叉树层次遍历
@@ -67,6 +64,7 @@ class LevelIteration{
         root.left = node1;
         root.right = node2;
         node2.left = node3;
+
 
         LevelIteration levelIteration = new LevelIteration();
         System.out.println("层序遍历(迭代实现)的结果为："+levelIteration.levelOrder(root).toString());

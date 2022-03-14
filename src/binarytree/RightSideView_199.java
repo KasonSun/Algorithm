@@ -21,6 +21,7 @@ public class RightSideView_199 {
         node2.left = node3;
 
         System.out.println("二叉树右视图(队列实现)的结果为："+rightSideView(root).toString());
+        System.out.println("二叉树右视图(队列实现)的结果为："+new RightSideView_199().rightSideView2(root).toString());
     }
     /**
      * （请看改进方法）二叉树的右视图（思路：二叉树层次遍历结果列表，每一层取最后一个）
@@ -92,5 +93,24 @@ public class RightSideView_199 {
         }
 
         return resultList;
+    }
+
+    /**
+     * 2.递归实现
+     */
+    List<Integer> result = new ArrayList<>();
+    public List<Integer> rightSideView2(TreeNode root){
+        dfs(root, 0);
+        return result;
+    }
+    public void dfs(TreeNode root, int level){
+        if(root==null){
+            return;
+        }
+        if(level==result.size()){
+            result.add(root.val);
+        }
+        dfs(root.right, level + 1);//此处一定是先右边
+        dfs(root.left, level+1);
     }
 }

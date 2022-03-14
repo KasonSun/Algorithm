@@ -2,6 +2,7 @@ package binarytree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
@@ -57,12 +58,16 @@ public class HasPathSumII_113 {
         }
 
         if (root.left != null) {
-            preOrderDfs(root.left, targetSum - root.val, result, path);
+            targetSum -= root.val;
+            preOrderDfs(root.left, targetSum, result, path);
+            targetSum += root.val;//回溯
             path.remove(path.size() - 1);//回溯
         }
 
         if (root.right != null) {
-            preOrderDfs(root.right, targetSum - root.val, result, path);
+            targetSum -= root.val;
+            preOrderDfs(root.right, targetSum, result, path);
+            targetSum -= root.val;//回溯
             path.remove(path.size() - 1);//回溯
         }
     }

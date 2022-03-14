@@ -22,7 +22,7 @@ public class MergeTrees_617 {
     }
 
     /**
-     * 1.层序迭代实现(直接利用root1进行修改返回)
+     * 1.迭代实现(直接利用root1进行修改返回)
      * @param root1
      * @param root2
      * @return 新树的根节点

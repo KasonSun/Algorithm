@@ -1,9 +1,7 @@
 package binarytree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。
@@ -70,5 +68,76 @@ public class FindMode_501 {
             resultArray[i] = result.get(i);
         }
         return resultArray;
+    }
+
+    /**
+     * 2.递归实现
+     */
+    int maxCount=0;
+    int count=0;
+    TreeNode pre=null;
+    List<Integer> result=new ArrayList<>();
+    public int[] findMode01(TreeNode root) {
+        inorder(root);
+        return result.stream().mapToInt(Integer::intValue).toArray();
+    }
+    public void inorder(TreeNode root){
+        if(root==null){
+            return ;
+        }
+        inorder(root.left);
+        if(pre==null){
+            count=1;
+        }else if(pre.val==root.val){
+            count++;
+        }else{
+            count=1;
+        }
+        pre=root;
+        if(count==maxCount){
+            result.add(root.val);
+        }
+        if(count>maxCount){
+            maxCount=count;
+            result.clear();
+            result.add(root.val);
+        }
+        inorder(root.right);
+    }
+
+    /**
+     * 二叉树中的众数
+     * 如果该二叉树不是二叉搜索树，仅仅是二叉树，则可以
+     *      ①先遍历，使用map统计每个数的频率；
+     *      ②对map排序，遍历取频率最大的（可能存在多个频率最大）
+     */
+    public static int[] findModeUniversal(TreeNode root){
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        if(root==null){
+            return list.stream().mapToInt(Integer::intValue).toArray();//list转换为数组
+        }
+        traverseCount(root, map);
+        List<Map.Entry<Integer, Integer>> mapList = map.entrySet().stream()
+                .sorted((c1,c2)->c2.getValue().compareTo(c1.getValue()))//按值从大到小排序
+                .collect(Collectors.toList());//将Entry作为整体放入list
+
+        list.add(mapList.get(0).getKey());//把频率最高的加入list
+        for(int i=1;i<mapList.size();i++){//可能存在多个最大频率数
+            if(mapList.get(i).getValue()==mapList.get(i-1).getValue()){
+                list.add(mapList.get(i).getKey());
+            }else{
+                break;
+            }
+        }
+        return list.stream().mapToInt(Integer::intValue).toArray();
+    }
+    public static void traverseCount(TreeNode cur, Map<Integer, Integer> map){
+        if(cur==null){
+            return ;
+        }
+        map.put(cur.val, map.getOrDefault(cur.val,0)+1);
+        traverseCount(cur.left, map);
+        traverseCount(cur.right, map);
     }
 }

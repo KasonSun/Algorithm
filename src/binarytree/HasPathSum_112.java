@@ -21,7 +21,7 @@ public class HasPathSum_112 {
 
         int targetSum = 3;
 
-        System.out.println("路径和是否存在："+hasPathSum(root,targetSum));
+        System.out.println("路径和是否存在："+hasPathSum2(root,targetSum));
     }
 
     /**
