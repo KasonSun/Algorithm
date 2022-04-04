@@ -27,7 +27,7 @@ package dp;
 public class MinCostClimbingStairs_746 {
     public static void main(String[] args) {
         int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
-        System.out.println("最小花费爬楼梯的结果为：" + minCostClimbingStairs(cost));
+        System.out.println("最小花费爬楼梯的结果为：" + minCostClimbingStairs01(cost));
     }
 
     /**
@@ -54,5 +54,15 @@ public class MinCostClimbingStairs_746 {
             dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
         }
         return Math.min(dp[cost.length - 1], dp[cost.length - 2]);
+    }
+
+    public static int minCostClimbingStairs01(int[] cost) {
+        int[] dp = new int[cost.length + 1];
+        dp[0] = 0;
+        dp[1] = 0;
+        for (int i = 2; i <= cost.length; i++) {
+            dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+        return dp[cost.length];
     }
 }

@@ -27,7 +27,7 @@ public class RemoveLinkListElement_203 {
 
         ListNode result = removeElements(head, val);
         while (result != null) {
-            System.out.println(result.value);
+            System.out.println(result.val);
             result = result.next;
         }
 
@@ -50,7 +50,7 @@ public class RemoveLinkListElement_203 {
         ListNode pre = dummy;
         ListNode temp = head;
         while (temp != null) {
-            if (temp.value == val) {
+            if (temp.val == val) {
                 pre.next = temp.next;
             }else {
                 pre = temp;
@@ -63,20 +63,20 @@ public class RemoveLinkListElement_203 {
 }
 //链表节点类
 class ListNode{
-    int value;
+    int val;
     ListNode next;
     //无参构造
     public ListNode(){
 
     }
     //有参构造
-    public ListNode(int value) {
-        this.value = value;
+    public ListNode(int val) {
+        this.val = val;
     }
 
     //
-    public ListNode(int value, ListNode next){
-        this.value = value;
+    public ListNode(int val, ListNode next){
+        this.val = val;
         this.next = next;
     }
 }

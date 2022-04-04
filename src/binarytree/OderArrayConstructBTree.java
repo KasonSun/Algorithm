@@ -1,7 +1,7 @@
 package binarytree;
 
 /**
- * 数组构建二叉树
+ * 层序数组构建二叉树
  */
 public class OderArrayConstructBTree {
     public static void main(String[] args) {

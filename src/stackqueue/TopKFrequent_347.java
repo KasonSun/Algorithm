@@ -37,7 +37,7 @@ public class TopKFrequent_347 {
         //2.对频率进行排序
         //“根据map的value值正序排，相当于一个小顶堆（由小到大）”
         //①((o1, o2) -> o1.getValue() - o2.getValue()) Lambda表达式写法，传入比较规则
-//        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(((o1, o2) -> o1.getValue() - o2.getValue()));
+        //PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(((o1, o2) -> o1.getValue() - o2.getValue()));
 
         //①完整写法，传入comparator,重写compare方法
         PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
@@ -62,5 +62,13 @@ public class TopKFrequent_347 {
         return result;
      }
 
-
+    //不去重
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        ArrayList<Integer> result=new ArrayList<>();
+        Arrays.sort(input);
+        for(int i=0;i<k;i++){
+            result.add(input[i]);
+        }
+        return result;
+    }
 }

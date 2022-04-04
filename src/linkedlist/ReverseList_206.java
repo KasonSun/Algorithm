@@ -13,9 +13,6 @@ package linkedlist;
  * 输出：[]
  */
 public class ReverseList_206 {
-    public static void main(String[] args) {
-
-    }
 
     /**
      * 反转链表（双指针法）

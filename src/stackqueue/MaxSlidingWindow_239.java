@@ -1,6 +1,7 @@
 package stackqueue;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 
 /**
  * 给你一个整数数组 nums，有一个大小为k的滑动窗口从数组的最左侧移动到数组的最右侧。
@@ -33,6 +34,11 @@ import java.util.ArrayDeque;
  *
  */
 public class MaxSlidingWindow_239 {
+    public static void main(String[] args) {
+        int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
+        int k = 3;
+        System.out.println(new MaxSlidingWindow_239().maxValueWindows(nums, k).toString());
+    }
     /**
      * 单调队列实现(O(n))
      *      1.pop(value)：如果窗口移除的元素value等于单调队列的出口元素，那么队列弹出元素，否则不用任何操作
@@ -55,7 +61,7 @@ public class MaxSlidingWindow_239 {
             while (!deque.isEmpty() && deque.peek() < i - k + 1) {
                 deque.poll();//弹出队头元素
             }
-            //2.既然是单调，就要保证每次放进去的数字要比末尾的都大，否则也弹出
+            //2.既然是单调，就要保证每次放进去的数字要比末尾的都小，否则也弹出
             while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
                 deque.pollLast();
             }
@@ -67,5 +73,51 @@ public class MaxSlidingWindow_239 {
             }
         }
         return result;
+    }
+
+    /**
+     * 暴力解法
+     * @param num
+     * @param size
+     * @return
+     */
+    public ArrayList<Integer> maxInWindows(int [] num, int size) {
+        ArrayList<Integer> result=new ArrayList<>();
+        if(num.length==0 || size<1 || num.length<size){
+            return result;
+        }
+        for(int i=0;i+size-1<num.length;i++){
+            int j=i+size-1;
+            int max=num[j];
+            for(int k=i;k<j;k++){
+                max=Math.max(max,num[k]);
+            }
+            result.add(max);
+        }
+        return result;
+    }
+
+    public ArrayList<Integer> maxValueWindows(int[] nums, int size) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (nums.length == 0 || size < 1 || nums.length < size) {
+            return result;
+        }
+        int left=0;
+        int right = size - 1;
+        while (left < right && right < nums.length) {
+            int maxValue = calMax(nums, left, right);
+            result.add(maxValue);
+            left++;
+            right++;
+        }
+        return result;
+    }
+
+    public static int calMax(int[] nums, int left, int right) {
+        int max = nums[right];
+        for (int i = left; i < right; i++) {
+            max = Math.max(max, nums[i]);
+        }
+        return max;
     }
 }

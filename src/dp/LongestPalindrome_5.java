@@ -55,7 +55,7 @@ public class LongestPalindrome_5 {
             left--;
             right++;
         }
-        // 回文串的长度是right-left+1-2 = right - left - 1
+        // 回文串的长度是right-left+1-2 = right - left - 1（-2是因为满足条件后两个指针分别多走了一步）
         return right - left - 1;
     }
 
@@ -114,7 +114,7 @@ public class LongestPalindrome_5 {
         }
         //先枚举子串的长度
         for (int l = 2; l <= s.length(); l++) {
-            //枚举左边界，左边界的上限可以设置的宽松一些
+            //再枚举左边界，左边界的上限可以设置的宽松一些
             for (int i = 0; i < s.length(); i++) {
                 //由L和i可以确定右边界，即j-i+1=l
                 int j = l + i - 1;

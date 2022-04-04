@@ -37,7 +37,7 @@ public class RestoreIpAddresses_93 {
     /**
      * 递归参数和返回值：void backTracking(String s, int startIndex, int pointNum) pointNum记录点的数量
      * 终止条件：pointNum==3说明字符串分为4段，验证第四段是否合法，如果合法就加入到结果集中
-     * 单层递归逻辑：循环中截取[startIndex, i]这个区间就是截取的子串，需要判断这个子串是否合法，如果合法就在字符串后面加上符号.表示已经分割，如果不合法就解说本层循环，剪掉分支
+     * 单层递归逻辑：循环中截取[startIndex, i]这个区间就是截取的子串，需要判断这个子串是否合法，如果合法就在字符串后面加上符号.表示已经分割，如果不合法就结束本层循环，剪掉分支
      *
      * @param s
      * @return

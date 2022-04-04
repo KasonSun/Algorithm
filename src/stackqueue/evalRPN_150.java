@@ -3,7 +3,7 @@ package stackqueue;
 import java.util.Stack;
 
 /***
- * 根据 逆波兰表示法，求表达式的值。
+ * 根据 逆波兰表达式（后缀表达式）表示法，求表达式的值。
  * 有效的算符包括+、-、*、/。每个运算对象可以是整数，也可以是另一个逆波兰表达式。
  * 说明：
  * 整数除法只保留整数部分。
@@ -34,9 +34,16 @@ public class evalRPN_150 {
     public static void main(String[] args) {
         String[] tokens={"2","1","+","3","*"};
         System.out.println(evalRPN(tokens));
+
+        String inStr = "3+(2-5)*6/3";
+        String inStr1 = "100+100";
+        String[] inStrArray = {"3", "2", "5", "-", "6", "*", "3", "/", "+"};
+        String[] inStrArray1 = {"100", "100","+","100","100","*","-"};
+        System.out.println(evalRPN(inStrArray1));
     }
 
     /**
+     * 逆波兰表达式计算
      * 思路：（前提：表达式总会得出有效数值且不存在除数为 0 的情况）
      *      1.非运算符号压入栈
      *      2.遇到运算符号则出栈两个元素进行运算，运算结果压入栈

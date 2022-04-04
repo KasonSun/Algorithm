@@ -58,7 +58,9 @@ public class LengthOfLIS_300 {
         int result = 0;
         for (int i = 1; i < nums.length; i++) {
             for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
+                if (nums[i] > nums[j]) {//nums[i]>nums[j]只是迭代过程对0-i-1每个位置单独判断，j位置是不是可以跟在i的后面，是不是可以满足上升子序列的要求
+                    //一轮迭代即可迭代出当前i位置的最长上升子序列值
+                    //关于这个也可以看看 https://www.bilibili.com/video/BV1XF411t76w?spm_id_from=333.337.search-card.all.click
                     dp[i] = Math.max(dp[i], dp[j] + 1);// 注意这里不是要dp[i] 与 dp[j] + 1进行比较，而是我们要取dp[j] + 1的最大值。
                 }
                 //System.out.println("dp["+i+"]："+dp[i]);

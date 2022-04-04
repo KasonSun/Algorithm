@@ -30,6 +30,10 @@ public class BubbleSort {
         }
     }
 
+    /**
+     * 冒泡改进
+     * @param nums
+     */
     public static void bubbleSortAdvanced(int[] nums) {
         boolean flag = false;
         for (int i = 0; i < nums.length; i++) {

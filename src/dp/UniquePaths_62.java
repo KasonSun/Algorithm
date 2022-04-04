@@ -5,6 +5,7 @@ package dp;
  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
  * 问总共有多少条不同的路径？
+ * (注意m，n从1开始)
  *
  * 输入：m = 3, n = 7
  * 输出：28
@@ -27,10 +28,11 @@ public class UniquePaths_62 {
     public static void main(String[] args) {
         int m = 3, n = 7;
         System.out.println("不同路径I结果为：" + uniquePaths(m, n));
+        System.out.println("不同路径I结果为：" + uniquePaths01(m, n));
     }
 
     /**
-     * 动态规划；T:O(m*n) S:O(m*n)
+     * 1.动态规划；T:O(m*n) S:O(m*n)
      *                  机器人从（0,0）位置出发，到（m-1,n-1）终点
      *                五部曲：①确定dp[i][j]数组以及下标的含义
      *                            dp[i][j]的定义为：从（0,0）出发，到（i,j）有dp[i][j]条不同的路径
@@ -67,5 +69,21 @@ public class UniquePaths_62 {
             }
         }
         return dp[m - 1][n - 1];
+    }
+
+    /**
+     * 2.深度优先搜索--遍历整个二叉树
+     * @param m
+     * @param n
+     * @return
+     */
+    public static int uniquePaths01(int m, int n) {
+        return dfs(1, 1, m, n);
+    }
+
+    public static int dfs(int i, int j, int m, int n) {
+        if(i>m || j>n) return 0;//越界
+        if(i==m && j==n) return 1;//相当于找到了一条路径，也即为叶子节点
+        return dfs(i + 1, j, m, n) + dfs(i, j + 1, m, n);
     }
 }

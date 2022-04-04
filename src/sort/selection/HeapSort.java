@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class HeapSort {
     public static void main(String[] args) {
         int[] tree = {2,5,3,1,10,4};
-        buildHeap(tree, tree.length);
+        heapify(tree, tree.length,0);
         System.out.println(Arrays.toString(tree));
         heapSort(tree);
         System.out.println(Arrays.toString(tree));

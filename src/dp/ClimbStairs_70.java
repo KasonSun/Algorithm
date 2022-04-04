@@ -89,8 +89,8 @@ public class ClimbStairs_70 {
     public static int climbStairsAdvanced(int n, int m) {//代码中m表示最多可以爬m个台阶，代码中把m改成2就是本题70.爬楼梯可以AC的代码了
         int[] dp = new int[n + 1];
         dp[0] = 1;
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= m; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
                 if (i - j >= 0) {
                     dp[i] += dp[i - j];
                 }

@@ -22,7 +22,7 @@ import java.util.Arrays;
 public class FindLengthOfLCIS_674 {
     public static void main(String[] args) {
         int[] nums = {1,3,5,4,2,3,4,5};
-        System.out.println("最长连续递增子序列为：" + findLengthOfLCIS02(nums));
+        System.out.println("最长连续递增子序列为：" + findLengthOfLCIS01(nums));
     }
 
     /**

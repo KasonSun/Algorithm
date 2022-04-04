@@ -47,7 +47,7 @@ public class MyLinkList_707 {
         for (int i = 0; i <= index; i++) {
             temp = temp.next;
         }
-        return temp.value;
+        return temp.val;
     }
 
     /**

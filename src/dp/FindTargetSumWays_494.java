@@ -23,7 +23,7 @@ public class FindTargetSumWays_494 {
     public static void main(String[] args) {
         int[] nums = {1, 1, 1, 1, 1};
         int S = 3;
-        System.out.println("目标和为："+finTargetSumWays01(nums, S));
+        System.out.println("目标和为："+findTargetSumWays(nums, S));
     }
 
     /**
@@ -56,11 +56,10 @@ public class FindTargetSumWays_494 {
      * *如果s大于sum,不可能实现，返回o
      * *如果sum(P)不是整数，也就是s + sum不是偶数，(S + sum) / 2除不尽，有余数不可能实现等号条件，返回0 .
      * * dp[j]代表的意义:填满容量为j的背包，有dp[j]种方法。因为填满容量为0的背包有且只有一种方法，所以dp[0] = 1
-     * *状态转移: dp[j] = dp[j] + dp[j - num],
+     * *状态转移: dp[j]+ = dp[j] + dp[j - num],
      * *当前填满容量为j的包的方法数=之前填满容量为j的包的方法数+之前填满容量为j - num的包的方法数
      * *也就是当前数num的加入，可以把之前和为j - num的方法数加入进来。
      * *返回dp[-1],也就是dp[ target]结束判断条件
-     *
      *
      * @param nums,target
      * @return

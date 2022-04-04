@@ -20,6 +20,7 @@ public class IsPerfectSquare_367 {
         System.out.println("二分法求解" + num1 + "是否为完全平方数：" + isPerfectSquare02(num1));
         System.out.println("二分法求解" + num2 + "是否为完全平方数：" + isPerfectSquare02(num2));
 
+        Fibonacci(16);
     }
 
     /**
@@ -54,4 +55,21 @@ public class IsPerfectSquare_367 {
         }
         return false;
     }
+
+    public static int Fibonacci(int number) {
+        if (number <= 0) {
+            return 0;
+        }
+        if (number == 1 || number == 2) {
+            return 1;
+        }
+        int first = 1, second = 1, third = 0;
+        for (int i = 3; i <= number; i++) {
+            third = first + second;
+            first = second;
+            second = third;
+        }
+        return third;
+    }
+
 }

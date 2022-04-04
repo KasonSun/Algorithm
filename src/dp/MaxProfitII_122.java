@@ -23,10 +23,12 @@ package dp;
  */
 public class MaxProfitII_122 {
     public static void main(String[] args) {
-
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        System.out.println(maxProfit(prices));
     }
 
     /**
+     * 1.动态规划法
      * 和121的区别就是可以买卖多次
      *      唯一区别就是：第i天持有股票即dp[i][0]，如果是第i天买入股票，
      *      所得现金就是昨天不持有股票的所得现金 减去 今天的股票价格 即：dp[i - 1][1] - prices[i]
@@ -43,9 +45,27 @@ public class MaxProfitII_122 {
         dp[0][0] = -prices[0];
         dp[0][1] = 0;
         for (int i = 1; i < prices.length; i++) {
-            dp[i][0] = Math.max(dp[i - 1][1]-prices[i], dp[i-1][0]);
-            dp[i][1] = Math.max(dp[i - 1][0] + prices[i], dp[i - 1][1]);
+            dp[i][0] = Math.max(dp[i-1][0], dp[i - 1][1]-prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1],dp[i - 1][0] + prices[i]);
         }
         return dp[prices.length - 1][1];
+    }
+
+    /**
+     * 2.贪心法
+     *      只需要记录正利润即可
+     * @param prices
+     * @return
+     */
+    public static int maxProfit01(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+
+        int result=0;
+        for (int i = 1; i < prices.length; i++) {
+            result += Math.max(prices[i] - prices[i - 1], 0);
+        }
+        return result;
     }
 }
