@@ -29,7 +29,7 @@ public class ReverseStringII_541 {
         int n = s.length();
         char[] arr = s.toCharArray();
         for (int i = 0; i < n; i += 2 * k) {
-            reverse(arr, i, Math.min(i + k, n) - 1);//0-k是k+1个，故需要-1
+            reverse01(arr, i, Math.min(i + k, n) - 1);//0-k是k+1个，故需要-1
         }
         return new String(arr);//传入字符数组构造字符串
     }
@@ -41,6 +41,14 @@ public class ReverseStringII_541 {
             arr[right] = temp;
             left++;
             right--;
+        }
+    }
+
+    public static void reverse01(char[] arr, int left, int right){
+        for (; left < right; left++, right--) {
+            char temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
         }
     }
 }

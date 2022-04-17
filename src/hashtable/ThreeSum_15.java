@@ -56,7 +56,7 @@ public class ThreeSum_15 {
 
             int left = i + 1;
             int right = nums.length - 1;
-            while (left < right) {
+            while (left < right) {//此处保证三个数，一定是<
                 int sum = nums[i] + nums[left] + nums[right];
                 if (sum > 0) {
                     right--;

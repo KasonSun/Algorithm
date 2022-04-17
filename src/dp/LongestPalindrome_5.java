@@ -18,7 +18,7 @@ package dp;
 public class LongestPalindrome_5 {
     public static void main(String[] args) {
         String s = "babad";
-        System.out.println("最长回文子串为：" + longestPalindrome02(s));
+        System.out.println("最长回文子串为：" + palidrome(s));
     }
 
     /**
@@ -141,5 +141,36 @@ public class LongestPalindrome_5 {
             }
         }
         return s.substring(start, start + maxLen);
+    }
+
+    /**
+     * 动态规划简化
+     *  当此时的两个字符相等两种情况 j-i<=1:dp[i][j]=true; j-i>1:dp[i][j]=true;>dp[i][j]=dp[i+1][j-1]
+     * @param s
+     * @return
+     */
+    public static String palidrome(String s) {
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        int start = 0;
+        int maxLen=0;
+        for (int i = s.length()-1; i>=0; i--) {
+            for (int j = i; j < s.length(); j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (j - i <= 1) {
+                        dp[i][j]=true;
+                    }else if(dp[i+1][j-1]==true){
+                        dp[i][j]=true;
+                    }
+                    //之前由于没有加入dp[i][j]==true的判断导致测试用例不能完全通过
+                    //观察上面if (s.charAt(i) == s.charAt(j))并且满足j-i<=1 或者 dp[i+1][j-1]为true, 才有dp[i][j]=true
+                    //因此会存在dp[i][j]==false的情况，此时是不需要比较最大长度的，因为此时i，j指向并不是回文子串
+                    if (dp[i][j] && maxLen < j - i + 1) {
+                        start = i;
+                        maxLen = j - i + 1;
+                    }
+                }
+            }
+        }
+        return s.substring(start, start+maxLen);
     }
 }

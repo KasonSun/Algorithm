@@ -19,11 +19,11 @@ package dp;
 public class MaxSubArray_53 {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println("最大子数组和为：" + maxSubArray(nums));
+        System.out.println("最大子数组和为：" + maxSubArray01(nums));
     }
 
     /**
-     * 动态规划：T(O(n))  S(O(n))
+     * 1.动态规划：T(O(n))  S(O(n))
      *                  注意：需要保证连续并且和最大
      *              五部曲：
      *                  ①dp数组定义
@@ -61,6 +61,33 @@ public class MaxSubArray_53 {
             dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
             if (dp[i] > result) {
                 result = dp[i];
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 2.贪心法
+     *      贪心准则：-2,1 计算起点的时候，一定是1开始计算，因为负数会拉低总和
+     *      局部最优：当前“连续和”为负数的时候立刻放弃，从下一个元素重新计算“连续和”，因为负数加上下一个元素 “连续和”只会越来越小。
+     *      全局最优：选取最大“连续和”
+     * @param nums
+     * @return
+     */
+    public static int maxSubArray01(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+
+        int result = Integer.MIN_VALUE;
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            count += nums[i];
+            if (count > result) {
+                result = count;
+            }
+            if (count <= 0) {
+                count = 0;
             }
         }
         return result;

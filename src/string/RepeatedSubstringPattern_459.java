@@ -20,6 +20,7 @@ public class RepeatedSubstringPattern_459 {
         System.out.println(repeatedSubstring(s));
     }
     /**
+     * 1.
      * 对于KMP算法的next数组求解可以看出，本题实际上是KMP的应用
      *      数组长度减去最长相同前后缀的长度相当于是第一个周期的长度，也就是一个周期的长度，如果这个周期可以被整除，就说明整个数组就是这个周期的循环。
      *       强烈建议大家把next数组打印出来，看看next数组里的规律，有助于理解KMP算法
@@ -61,5 +62,41 @@ public class RepeatedSubstringPattern_459 {
             }
             next[i] = j;
         }
+    }
+
+    /**
+     * 2.技巧
+     * @param s
+     * @return
+     */
+    public static boolean repeatedSubString01(String s) {
+        String str = s + s;
+        return str.substring(1, str.length() - 1).contains(s);
+    }
+
+    /**
+     * 3.暴力法
+     * @param s
+     * @return
+     */
+    public static boolean repeatedSubString02(String s) {
+        if (s.length() <= 1) {
+            return false;
+        }
+        for (int i = 1; i * 2 <= s.length(); i++) {
+            if (s.length() % i == 0) {
+                boolean match = true;
+                for (int j = i; j < s.length(); j++) {
+                    if (s.charAt(j) != s.charAt(j - i)) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
