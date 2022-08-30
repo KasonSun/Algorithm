@@ -25,8 +25,9 @@ import java.util.Arrays;
 public class LargestSumAfterKNegations_1005 {
     public static void main(String[] args) {
         int[] nums = {4,2,3};
+        int[] nums1 = {2, 3, -1, 5, -4};
         int k = 1;
-        System.out.println("k次取反后的最大数组和为："+largestSumAfterKNegation(nums,k));
+        System.out.println("k次取反后的最大数组和为："+largestSumAfterKNegation(nums1,k));
     }
 
     /**
@@ -44,7 +45,8 @@ public class LargestSumAfterKNegations_1005 {
      */
     public static int largestSumAfterKNegation(int[] nums, int k) {
         //①将数组绝对值从大到小排序，注意要按照绝对值的大小
-        quickSort(nums);
+//        quickSort(nums);
+        sort(nums, 0, nums.length - 1);
         for (int i = 0; i < nums.length; i++) {
             //②从前向后遍历，遇到负数将其变为正数，同时k--
             if (nums[i] < 0 && k > 0) {
@@ -77,14 +79,30 @@ public class LargestSumAfterKNegations_1005 {
     private static int partition(int[] nums, int low, int high){
         int pivot = nums[low];     //枢轴记录
         while (low<high){
-            while (low<high && Math.abs(nums[high])<=Math.abs(pivot)) --high;
+            while (low<high && Math.abs(nums[high])<Math.abs(pivot)) --high;
             nums[low]=nums[high];             //交换绝对值比枢轴大的记录到左端
-            while (low<high && Math.abs(nums[low])>=Math.abs(pivot)) ++low;
+            while (low<high && Math.abs(nums[low])>Math.abs(pivot)) ++low;
             nums[high] = nums[low];           //交换绝对值比枢轴小的记录到右端
         }
         //扫描完成，枢轴到位
         nums[low] = pivot;
         //返回的是枢轴的位置
         return low;
+    }
+
+    public static void sort(int[] nums, int left, int right){
+        if (right - left < 1) {
+            return;
+        }
+        int temp=nums[left], min=left, max=right;
+        while (left < right) {
+            while(left<right && Math.abs(nums[right])<=Math.abs(temp)) right--;
+            nums[left]=nums[right];
+            while(left<right && Math.abs(nums[left])>=Math.abs(temp)) left++;
+            nums[right]=nums[left];
+        }
+        nums[left]=temp;
+        sort(nums, min, left-1);
+        sort(nums, left + 1, max);
     }
 }

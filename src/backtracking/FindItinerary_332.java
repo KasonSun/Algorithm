@@ -44,7 +44,6 @@ public class FindItinerary_332 {
      * @param tickets
      * @return
      */
-
     Deque<String> result = new LinkedList<>();//此时的result相当于之前题目中回溯用的path
     //map<出发机场，map<到达机场，航班次数>> map
     Map<String, Map<String, Integer>> map = new HashMap<>();

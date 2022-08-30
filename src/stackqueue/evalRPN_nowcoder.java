@@ -48,7 +48,7 @@ public class evalRPN_nowcoder {
 
     public static String[] intoPost(String inFix){
         String[] inFixArray = toStringArray(inFix);
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();//存放后缀结果
         Stack<String> stack = new Stack<String>();//存放运算符的栈
         for (int i = 0; i < inFixArray.length; i++) {
             String element = inFixArray[i];
