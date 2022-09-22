@@ -57,6 +57,7 @@ public class LongestPalindromeSubseq_516 {
      * @return
      */
     public static int longestPalindromeSubseq(String s) {
+        //dp[i][j]：字符串s在[i, j]范围内最长的回文子序列的长度为dp[i][j]。
         int[][] dp = new int[s.length()][s.length()];
         for (int i = 0; i < s.length(); i++) {
             dp[i][i] = 1;

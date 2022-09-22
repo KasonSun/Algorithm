@@ -84,6 +84,7 @@ public class NumDistinct_115 {
      * @return
      */
     public static int numDistince(String s, String t) {
+        //dp[i][j]：以i-1为结尾的s子序列中出现以j-1为结尾的t的个数为dp[i][j]。
         int[][] dp = new int[s.length() + 1][t.length() + 1];
         for (int i = 0; i <= s.length(); i++) {
             dp[i][0] = 1;//也就是把以i-1为结尾的s，删除所有元素，出现空字符串的个数就是1。

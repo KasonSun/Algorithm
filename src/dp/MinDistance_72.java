@@ -91,6 +91,7 @@ public class MinDistance_72 {
      * @return
      */
     public static int minDistance(String word1, String word2) {
+        //dp[i][j]：以i-1为结尾的word1和以j-1为结尾的word2 想要达到相等，最近的编辑距离为dp[i][j]。
         int[][] dp = new int[word1.length() + 1][word2.length() + 1];
         for (int i = 0; i <= word1.length(); i++) {
             dp[i][0] = i;

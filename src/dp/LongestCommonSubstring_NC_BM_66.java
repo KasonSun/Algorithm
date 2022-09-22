@@ -7,7 +7,13 @@ package dp;
  *
  */
 public class LongestCommonSubstring_NC_BM_66 {
+    public static void main(String[] args) {
+        String str1 = "1AB2345CD";
+        String str2 = "12345EF";
+        String lcs = new LongestCommonSubstring_NC_BM_66().LCS(str1, str2);
+        System.out.println(lcs);
 
+    }
     /**
      * ①dp[i][j]指以i-1和j-1为结尾的str1和str2最长公共子串的长度
      * ②每次更新dp[i][j]后，我们维护最大值，并更新该子串结束位置

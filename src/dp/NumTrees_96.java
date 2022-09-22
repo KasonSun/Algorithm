@@ -34,7 +34,7 @@ public class NumTrees_96 {
      */
     public static int numTrees(int n) {
         int[] dp = new int[n + 1];
-        dp[0] = 1;
+        dp[0] = 1;//空节点也是二叉树
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
                 //对于第i个节点，需要考虑1作为根节点直到i作为根节点的情况，所以需要累加
